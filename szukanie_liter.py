@@ -5,9 +5,14 @@ import os
 from PIL import ImageGrab
 from time import time
 
-
-# #wyswietlanie obrazu
+#wyswietlanie obrazu
 # loop_time = time()
+# if window_name is None:
+#     self.hwnd = win32gui.GetDesktopWindow()
+# else:
+#     self.hwnd = win32gui.FindWindow(None, 'Literaki — Mozilla Firefox')
+#     if not self.hwnd:
+#         raise Exception("Literaki nie są włączone")
 # while(True):
 #     screenshot = ImageGrab.grab(bbox =(0, 0, 1500, 1500))
 #     screenshot = np.array(screenshot)
@@ -32,13 +37,13 @@ from time import time
 #szukanie liter
 images = [cv.imread(file, cv.IMREAD_UNCHANGED) for file in (glob.glob("litery/*.jpg"))]
 dir_names = os.listdir('litery')
-
+diction = {'a':[], '':[],'c':[],'d':[],'e':[],'f':[]}
 assert images is not None, "file could not be read, check with os.path.exists()"
 
 
 
 #testowa plansza
-test1 = cv.imread('test.jpg', cv.IMREAD_UNCHANGED)
+test1 = cv.imread('test1.jpg', cv.IMREAD_UNCHANGED)
 #test1 = cv.cvtColor(test, cv.COLOR_BGR2GRAY)
 for litery in images:
     letter_name = dir_names[0][0]
@@ -61,7 +66,8 @@ for litery in images:
         cv.rectangle(test1, (x,y), (x+w, y+h),(0,255,255), 2)
         rectangles_size.append([x , y, w+x ,h+y])
     dir_names.pop(0)
-    #print(rectangles_size)
+    #diction[letter_name].append(rectangles_size)
+    print(sum)
 cv.imshow('test', test1)
 cv.waitKey()
 cv.destroyAllWindows()
