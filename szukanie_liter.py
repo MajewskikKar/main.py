@@ -65,3 +65,4 @@ for litery in images:
 cv.imshow('test', test1)
 cv.waitKey()
 cv.destroyAllWindows()
+#TEST
