@@ -37,7 +37,8 @@ from time import time
 #szukanie liter
 images = [cv.imread(file, cv.IMREAD_UNCHANGED) for file in (glob.glob("litery/*.jpg"))]
 dir_names = os.listdir('litery')
-diction = {'a':[], '':[],'c':[],'d':[],'e':[],'f':[]}
+diction = dict()
+rectangles_center = []
 assert images is not None, "file could not be read, check with os.path.exists()"
 
 
@@ -64,10 +65,20 @@ for litery in images:
 
     for (x,y,w,h) in rectangles:
         cv.rectangle(test1, (x,y), (x+w, y+h),(0,255,255), 2)
-        rectangles_size.append([x , y, w+x ,h+y])
+        rectangles_size.append((x , y, w+x ,h+y))
+
+    for x in rectangles:
+        a = [x[0]*2 + x[2], x[1]*2+x[3]]
+        rectangles_center.append(a)
+    diction[letter_name]=(rectangles_center)
+
+    rectangles_center = []
     dir_names.pop(0)
-    #diction[letter_name].append(rectangles_size)
-    print(sum)
+
+#rectangles_size shape means (left, down, right, top)
+for key, value in diction.items():
+    for item in value:
+        print(item)
 cv.imshow('test', test1)
 cv.waitKey()
 cv.destroyAllWindows()
