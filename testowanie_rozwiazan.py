@@ -1,44 +1,24 @@
-import cv2
+import itertools
+import math
+from szukanie_liter import diction, rectangles_cen, rectangles_cen_one
 import numpy as np
-import pyautogui as pg
+pairs = []
+pairs1 = []
+for x,y in itertools.combinations(sorted(rectangles_cen),2):
+    if math.dist(x, y)<90:
+        if sum(x)<sum(y):
+            pairs.append((int(str(x[0]) + str(x[1])),int(str(y[0]) + str(y[1]))))
+            pairs1.append([x,y])
+        else:
+            pairs.append((int(str(y[0]) + str(y[1])),int(str(x[0]) + str(x[1]))))
+            pairs1.append([y,x])
+pairs1_np = np.array(pairs1)
+for count, value in enumerate(pairs1_np):
+    if value[1] in pairs1_np[count:]:
+        i, j = np.where(a == value[1])
+# for count, value in enumerate(pairs1):
+#     print(value[1])
+#     print(diction[value[1]])
+    #if value[1] in nump[:count]:
+     #   print(pairs1.index(value[1]))
 
-# take a screenshot to store locally
-#screenshot = pg.screenshot('screenshot.png')
-
-# take a screenshot to locate objects on
-screenshot = pg.screenshot()
-
-# adjust colors
-screenshot = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
-
-# locate a single object in a screenshot
-#board = pg.locateOnScreen('board.png')
-
-# draw rectangle around the object
-#cv2.rectangle(
-#    screenshot,
-#    (board.left, board.top),
-#    (board.left + board.width, board.top + board.height),
-#    (0, 255, 255),
-#    2
-#)
-
-# detect several objects on screenshot
-for pawn in pg.locateAllOnScreen('a.jpg', confidence=0.7):
-    # draw rectangle around the object
-    cv2.rectangle(
-        screenshot,
-        (pawn.left, pawn.top),
-        (pawn.left + pawn.width, pawn.top + pawn.height),
-        (0, 0, 255),
-        2
-    )
-
-# display screenshot in a window
-cv2.imshow('Screenshot', screenshot)
-
-# escape condition
-cv2.waitKey(0)
-
-# clean up windows
-cv2.destroyAllWindows()
