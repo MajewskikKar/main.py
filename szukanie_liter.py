@@ -38,13 +38,15 @@ from time import time
 images = [cv.imread(file, cv.IMREAD_UNCHANGED) for file in (glob.glob("litery/*.jpg"))]
 dir_names = os.listdir('litery')
 diction = dict()
+diction1 = dict()
 rectangles_center = []
+rectangles_cen = []
 assert images is not None, "file could not be read, check with os.path.exists()"
 
 
 
 #testowa plansza
-test1 = cv.imread('test1.jpg', cv.IMREAD_UNCHANGED)
+test1 = cv.imread('test.jpg', cv.IMREAD_UNCHANGED)
 #test1 = cv.cvtColor(test, cv.COLOR_BGR2GRAY)
 for litery in images:
     letter_name = dir_names[0][0]
@@ -68,18 +70,23 @@ for litery in images:
         rectangles_size.append((x , y, w+x ,h+y))
 
     for x in rectangles:
-        a = [x[0]*2 + x[2], x[1]*2+x[3]]
+        a = (x[0]*2 + x[2], x[1]*2+x[3])
+        b = int(str(x[0]*2 + x[2]) + str(x[1]*2+x[3]))
         rectangles_center.append(a)
-    diction[letter_name]=(rectangles_center)
-
+        diction1[a]  =  (letter_name)
+        diction[b]   =  (letter_name)
+    rectangles_cen.append(rectangles_center)
     rectangles_center = []
     dir_names.pop(0)
 
 #rectangles_size shape means (left, down, right, top)
-for key, value in diction.items():
-    for item in value:
-        print(item)
+rectangles_cen = [item for sublist in rectangles_cen for item in sublist]
+rectangles_cen_one = []
+for items in rectangles_cen:
+    a = int(str(items[0]) + str(items[1]))
+    rectangles_cen_one.append(a)
+
+
 cv.imshow('test', test1)
 cv.waitKey()
 cv.destroyAllWindows()
-#TEST

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="288df41f-6224-4b0e-b388-600f93eb6935" name="Changes" comment="koniec na dziś">
+    <list default="true" id="288df41f-6224-4b0e-b388-600f93eb6935" name="Changes" comment="rozkmina">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/litery/e.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/litery/e.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/szukanie_liter.py" beforeDir="false" afterPath="$PROJECT_DIR$/szukanie_liter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing2.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testowanie_rozwiazan.py" beforeDir="false" afterPath="$PROJECT_DIR$/testowanie_rozwiazan.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +42,28 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.szukanie_liter">
+  <component name="RunManager" selected="Python.testowanie_rozwiazan">
+    <configuration name="_pydev_execfile" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="literak" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/pydev/_pydev_imps" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/pydev/_pydev_imps/_pydev_execfile.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="literki" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="literak" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -128,8 +150,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.szukanie_liter" />
         <item itemvalue="Python.testowanie_rozwiazan" />
+        <item itemvalue="Python._pydev_execfile" />
+        <item itemvalue="Python.szukanie_liter" />
         <item itemvalue="Python.literki" />
       </list>
     </recent_temporary>
@@ -171,7 +194,21 @@
       <option name="project" value="LOCAL" />
       <updated>1691073680630</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="rozkmina">
+      <created>1691159061201</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1691159061201</updated>
+    </task>
+    <task id="LOCAL-00006" summary="rozkmina">
+      <created>1691159116980</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1691159116980</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,6 +226,7 @@
     <MESSAGE value="PRACA" />
     <MESSAGE value="DODANIE PLIKÓW" />
     <MESSAGE value="koniec na dziś" />
-    <option name="LAST_COMMIT_MESSAGE" value="koniec na dziś" />
+    <MESSAGE value="rozkmina" />
+    <option name="LAST_COMMIT_MESSAGE" value="rozkmina" />
   </component>
 </project>
