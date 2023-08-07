@@ -4,9 +4,6 @@
     <list default="true" id="288df41f-6224-4b0e-b388-600f93eb6935" name="Changes" comment="rozkmina">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/szukanie_liter.py" beforeDir="false" afterPath="$PROJECT_DIR$/szukanie_liter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing2.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testowanie_rozwiazan.py" beforeDir="false" afterPath="$PROJECT_DIR$/testowanie_rozwiazan.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +39,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.testowanie_rozwiazan">
+  <component name="RunManager" selected="Python.szukanie_liter">
     <configuration name="_pydev_execfile" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="literak" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -150,9 +147,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.szukanie_liter" />
         <item itemvalue="Python.testowanie_rozwiazan" />
         <item itemvalue="Python._pydev_execfile" />
-        <item itemvalue="Python.szukanie_liter" />
         <item itemvalue="Python.literki" />
       </list>
     </recent_temporary>
@@ -208,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691159116980</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="rozkmina">
+      <created>1691417513607</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1691417513607</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

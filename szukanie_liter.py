@@ -5,6 +5,8 @@ import os
 from PIL import ImageGrab
 from time import time
 
+from collections import defaultdict
+
 #wyswietlanie obrazu
 # loop_time = time()
 # if window_name is None:
@@ -85,8 +87,13 @@ rectangles_cen_one = []
 for items in rectangles_cen:
     a = int(str(items[0]) + str(items[1]))
     rectangles_cen_one.append(a)
-
-
-cv.imshow('test', test1)
-cv.waitKey()
-cv.destroyAllWindows()
+import cluster
+rec = np.array(rectangles_cen)
+tym = []
+for elem in rectangles_cen:
+    tym.append(elem[0])
+cl = cluster.HierarchicalClustering(tym, lambda x,y: abs(x-y))
+cl.getlevel(1)
+# cv.imshow('test', test1)
+# cv.waitKey()
+# cv.destroyAllWindows()
