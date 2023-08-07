@@ -45,7 +45,7 @@ assert images is not None, "file could not be read, check with os.path.exists()"
 
 
 #testowa plansza
-test1 = cv.imread('test.jpg', cv.IMREAD_UNCHANGED)
+test1 = cv.imread('test1.jpg', cv.IMREAD_UNCHANGED)
 #test1 = cv.cvtColor(test, cv.COLOR_BGR2GRAY)
 for litery in images:
     letter_name = dir_names[0][0]
@@ -82,6 +82,36 @@ rectangles_cen_one = []
 for items in rectangles_cen:
     a = int(str(items[0]) + str(items[1]))
     rectangles_cen_one.append(a)
+
+
+#kwestia
+rec = np.array(rectangles_cen)
+x,y = set(), set()
+x1,y1 = set(), set()
+changer = dict()
+for items in rectangles_cen:
+    x.add(items[0])
+    y.add(items[1])
+x = sorted(x)
+y = sorted(y)
+print(y)
+tym = set()
+group = dict()
+for i in range(len(x)):
+    j=i+1
+    cond = False
+    while y[j] - y[i]<10 and y[j] not in tym:
+        tym.add(y[i])
+        tym.add(y[j])
+        j+=1
+        cond = True
+    if cond == True:
+        for elem in rectangles_cen:
+            if elem[1] in tym:
+                np.where(rec in tym, tym[0], rec)
+
+print(changer)
+
 cv.imshow('test', test1)
 cv.waitKey()
 cv.destroyAllWindows()
