@@ -87,13 +87,40 @@ rectangles_cen_one = []
 for items in rectangles_cen:
     a = int(str(items[0]) + str(items[1]))
     rectangles_cen_one.append(a)
-import cluster
+
+# rec = np.array(rectangles_cen)
+# tym = []
+# for elem in rectangles_cen:
+#     tym.append(elem[0])
+# cl = cluster.HierarchicalClustering(tym, lambda x,y: abs(x-y))
+# cl.getlevel(1)
+
+#kwestia
 rec = np.array(rectangles_cen)
-tym = []
-for elem in rectangles_cen:
-    tym.append(elem[0])
-cl = cluster.HierarchicalClustering(tym, lambda x,y: abs(x-y))
-cl.getlevel(1)
-# cv.imshow('test', test1)
-# cv.waitKey()
-# cv.destroyAllWindows()
+
+x,y = set(), set()
+x1,y1 = set(), set()
+changer = dict()
+for items in rectangles_cen:
+    x.add(items[0])
+    y.add(items[1])
+x = sorted(x)
+y = sorted(y)
+over = []
+tym = set()
+group = dict()
+for i in range(len(x)-1):
+    if x[i] in tym:
+        continue
+    j=i+1
+    while x[j] - x[i]<20 and x[j] not in tym:
+        tym = set()
+        tym.add(x[i])
+        tym.add(x[j])
+        j+=1
+    if tym not in over:
+        over.append(tym)
+print(over)
+cv.imshow('test', test1)
+cv.waitKey()
+cv.destroyAllWindows()
