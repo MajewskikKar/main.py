@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="288df41f-6224-4b0e-b388-600f93eb6935" name="Changes" comment="rozkmina">
+    <list default="true" id="288df41f-6224-4b0e-b388-600f93eb6935" name="Changes" comment="sety">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/szukanie_liter.py" beforeDir="false" afterPath="$PROJECT_DIR$/szukanie_liter.py" afterDir="false" />
     </list>
@@ -212,7 +212,21 @@
       <option name="project" value="LOCAL" />
       <updated>1691417513607</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="rozkmina">
+      <created>1691419766521</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1691419766521</updated>
+    </task>
+    <task id="LOCAL-00009" summary="sety">
+      <created>1691503241394</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1691503241394</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -231,6 +245,7 @@
     <MESSAGE value="DODANIE PLIKÓW" />
     <MESSAGE value="koniec na dziś" />
     <MESSAGE value="rozkmina" />
-    <option name="LAST_COMMIT_MESSAGE" value="rozkmina" />
+    <MESSAGE value="sety" />
+    <option name="LAST_COMMIT_MESSAGE" value="sety" />
   </component>
 </project>

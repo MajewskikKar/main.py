@@ -106,21 +106,34 @@ for items in rectangles_cen:
     y.add(items[1])
 x = sorted(x)
 y = sorted(y)
+tupl = (x,y)
 over = []
-tym = set()
 group = dict()
-for i in range(len(x)-1):
-    if x[i] in tym:
-        continue
-    j=i+1
-    while x[j] - x[i]<20 and x[j] not in tym:
-        tym = set()
-        tym.add(x[i])
-        tym.add(x[j])
-        j+=1
-    if tym not in over:
-        over.append(tym)
-print(over)
+def funkcja(a, tym=set()):
+    for i in range(len(a)-1):
+        if a[i] in tym:
+            continue
+        j=i+1
+        while a[j] - a[i]<20 and x[j] not in tym:
+            tym = set()
+            tym.add(a[i])
+            tym.add(a[j])
+            j+=1
+        if tym not in over:
+            over.append(tym)
+funkcja(x)
+funkcja(y)
+dicitioner = dict()
+for elem in over:
+    for item in elem:
+        dicitioner[item]=min(elem)
+
+print(dicitioner)
+#Numpy: Replacing values in a 2D array efficiently using a dictionary as a map
+
+indexer = np.array([dicitioner.get(i, i) for i in range(rec.min(), rec.max() + 1)])
+print(indexer[(rec - rec.min())])
+
 cv.imshow('test', test1)
 cv.waitKey()
 cv.destroyAllWindows()
