@@ -154,7 +154,7 @@ for elem in a:
     if len(elem)>1:
         for i in elem:
             print(der[tuple(i)])
-
+#dfsd
 #print(b)
 # cv.imshow('test', test1)
 # cv.waitKey()
