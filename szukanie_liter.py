@@ -2,6 +2,7 @@ import cv2 as cv
 import numpy as np
 import glob
 import os
+from itertools import groupby
 from PIL import ImageGrab
 from time import time
 
@@ -101,26 +102,33 @@ rec = np.array(rectangles_cen)
 x,y = set(), set()
 x1,y1 = set(), set()
 changer = dict()
+
 for items in rectangles_cen:
     x.add(items[0])
     y.add(items[1])
 x = sorted(x)
 y = sorted(y)
+x.append(10000)
+x.append(100043)
+y.append(10000)
+y.append(431132)
 tupl = (x,y)
 over = []
 group = dict()
-def funkcja(a, tym=set()):
+def funkcja(a, tym = set()):
     for i in range(len(a)-1):
         if a[i] in tym:
             continue
+        tym = set()
         j=i+1
-        while a[j] - a[i]<20 and x[j] not in tym:
-            tym = set()
+        while a[j] - a[i]<20:
             tym.add(a[i])
             tym.add(a[j])
             j+=1
+
         if tym not in over:
             over.append(tym)
+
 funkcja(x)
 funkcja(y)
 dicitioner = dict()
@@ -128,12 +136,26 @@ for elem in over:
     for item in elem:
         dicitioner[item]=min(elem)
 
-print(dicitioner)
 #Numpy: Replacing values in a 2D array efficiently using a dictionary as a map
 
 indexer = np.array([dicitioner.get(i, i) for i in range(rec.min(), rec.max() + 1)])
-print(indexer[(rec - rec.min())])
+indexer = indexer[(rec - rec.min())]
+der = dict()
+for count,value in enumerate(indexer):
+    a = list(diction1.values())[count]
+    b = tuple(value.tolist())
+    der[b] = a
+sort_y = indexer[indexer[:,1].argsort()]
+sort_x = indexer[indexer[:,0].argsort()]
 
-cv.imshow('test', test1)
-cv.waitKey()
-cv.destroyAllWindows()
+a = np.split(sort_x, np.unique(sort_x[:,0], return_index=1)[1][1:],axis=0)
+#b = np.split(indexer, np.flatnonzero(indexer[1:,0] != a[:-1,0])+1,axis=0)
+for elem in a:
+    if len(elem)>1:
+        for i in elem:
+            print(der[tuple(i)])
+
+#print(b)
+# cv.imshow('test', test1)
+# cv.waitKey()
+# cv.destroyAllWindows()
