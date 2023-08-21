@@ -137,6 +137,7 @@ for elem in over:
         dicitioner[item]=min(elem)
 
 #Numpy: Replacing values in a 2D array efficiently using a dictionary as a map
+#Group 2D numpy array elements which have equal 1st column values
 
 indexer = np.array([dicitioner.get(i, i) for i in range(rec.min(), rec.max() + 1)])
 indexer = indexer[(rec - rec.min())]
@@ -145,17 +146,32 @@ for count,value in enumerate(indexer):
     a = list(diction1.values())[count]
     b = tuple(value.tolist())
     der[b] = a
+
 sort_y = indexer[indexer[:,1].argsort()]
 sort_x = indexer[indexer[:,0].argsort()]
 
-a = np.split(sort_x, np.unique(sort_x[:,0], return_index=1)[1][1:],axis=0)
-#b = np.split(indexer, np.flatnonzero(indexer[1:,0] != a[:-1,0])+1,axis=0)
-for elem in a:
+ost = []
+
+x_sorted = np.split(sort_x, np.unique(sort_x[:,0], return_index=1)[1][1:],axis=0)
+for elem in x_sorted:
     if len(elem)>1:
-        for i in elem:
-            print(der[tuple(i)])
-#dfsd
+        lista = elem[elem[:, 1].argsort()]
+        print(lista)
+
+# out = np.split(a, np.flatnonzero(a[1:,0] != a[:-1,0])+1,axis=0)
+# print(b)
+# def sorter(x):
+#     for ar in x:
+#         ar.sort(axis=0)
+#         print(ar)
+
+#b = np.split(indexer, np.flatnonzero(indexer[1:,0] != a[:-1,0])+1,axis=0)
+# for elem in a:
+#     if len(elem)>1:
+#         for i in elem:
+#             print(der[tuple(i)])
+# #dfsd
 #print(b)
-# cv.imshow('test', test1)
-# cv.waitKey()
-# cv.destroyAllWindows()
+cv.imshow('test', test1)
+cv.waitKey()
+cv.destroyAllWindows()

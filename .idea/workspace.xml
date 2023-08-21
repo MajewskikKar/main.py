@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="288df41f-6224-4b0e-b388-600f93eb6935" name="Changes" comment="sety">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/litery/h.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/litery/h.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/szukanie_liter.py" beforeDir="false" afterPath="$PROJECT_DIR$/szukanie_liter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test.jpg" afterDir="false" />
     </list>
@@ -234,7 +235,21 @@
       <option name="project" value="LOCAL" />
       <updated>1691592224496</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="sety">
+      <created>1692280650266</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1692280650266</updated>
+    </task>
+    <task id="LOCAL-00012" summary="sety">
+      <created>1692280782685</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1692280782685</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
