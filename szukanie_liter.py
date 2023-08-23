@@ -2,7 +2,9 @@ import cv2 as cv
 import numpy as np
 import glob
 import os
-from itertools import groupby
+
+import itertools
+
 from PIL import ImageGrab
 from time import time
 
@@ -45,12 +47,14 @@ diction1 = dict()
 rectangles_center = []
 rectangles_cen = []
 assert images is not None, "file could not be read, check with os.path.exists()"
-
-
-
 #testowa plansza
 test1 = cv.imread('test.jpg', cv.IMREAD_UNCHANGED)
-#test1 = cv.cvtColor(test, cv.COLOR_BGR2GRAY)
+cwd = os.getcwd()
+slownik_pl = os.path.join(cwd, 'slowa.txt')
+
+
+
+
 for litery in images:
     letter_name = dir_names[0][0]
     result = cv.matchTemplate(litery, test1, cv.TM_CCOEFF_NORMED)
@@ -113,7 +117,7 @@ x.append(100043)
 y.append(10000)
 y.append(431132)
 tupl = (x,y)
-over = []
+over_y = []
 group = dict()
 def funkcja(a, tym = set()):
     for i in range(len(a)-1):
@@ -126,52 +130,68 @@ def funkcja(a, tym = set()):
             tym.add(a[j])
             j+=1
 
-        if tym not in over:
-            over.append(tym)
+        if tym not in over_y:
+            over_y.append(tym)
 
 funkcja(x)
+over_x = over_y
+over_y = []
 funkcja(y)
-dicitioner = dict()
-for elem in over:
+dictioner_x = dict()
+
+for elem in over_x:
     for item in elem:
-        dicitioner[item]=min(elem)
+        dictioner_x[item]=min(elem)
 
 #Numpy: Replacing values in a 2D array efficiently using a dictionary as a map
 #Group 2D numpy array elements which have equal 1st column values
 
-indexer = np.array([dicitioner.get(i, i) for i in range(rec.min(), rec.max() + 1)])
-indexer = indexer[(rec - rec.min())]
+indexer_x = np.array([dictioner_x.get(i, i) for i in range(rec.min(), rec.max() + 1)])
+indexer_x = indexer_x[(rec - rec.min())]
 der = dict()
-for count,value in enumerate(indexer):
+for count,value in enumerate(indexer_x):
     a = list(diction1.values())[count]
     b = tuple(value.tolist())
     der[b] = a
 
-sort_y = indexer[indexer[:,1].argsort()]
-sort_x = indexer[indexer[:,0].argsort()]
+#sort_y = indexer[indexer[:,1].argsort()]
+sort_x = indexer_x[indexer_x[:,0].argsort()]
 
-ost = []
 
 x_sorted = np.split(sort_x, np.unique(sort_x[:,0], return_index=1)[1][1:],axis=0)
+slowa = ['']
+
 for elem in x_sorted:
     if len(elem)>1:
         lista = elem[elem[:, 1].argsort()]
-        print(lista)
+        lista = lista.tolist()
+        tym = ''
+        for i in range(len(lista)-1):
+            tym+=der[tuple(lista[i])]
+            j = i+1
+            while (lista[j][1] - lista[i][1])<170:
+                tym+=der[tuple(lista[j])]
+                if j == (len(lista)-1):
+                    break
+                j+=1
+                i+=1
+            if len(tym)>1 and tym not in slowa[-1]:
+                slowa.append(tym)
+            tym = ''
 
-# out = np.split(a, np.flatnonzero(a[1:,0] != a[:-1,0])+1,axis=0)
-# print(b)
-# def sorter(x):
-#     for ar in x:
-#         ar.sort(axis=0)
-#         print(ar)
+slowa.remove('')
+def search_str(file_path, word):
+    with open(file_path, 'r') as file:
+        # read all content of a file
+        content = file.read()
+        # check if string present in a file
+        if word in content.split():
+            print(f'{word}:dopuszczalne')
+        else:
+            print(f'{word}:niedopuszczalne')
+for words in slowa:
+    search_str(slownik_pl, words)
 
-#b = np.split(indexer, np.flatnonzero(indexer[1:,0] != a[:-1,0])+1,axis=0)
-# for elem in a:
-#     if len(elem)>1:
-#         for i in elem:
-#             print(der[tuple(i)])
-# #dfsd
-#print(b)
 cv.imshow('test', test1)
 cv.waitKey()
 cv.destroyAllWindows()
